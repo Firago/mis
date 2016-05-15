@@ -1,0 +1,10 @@
+{
+    "misApp": {
+        "SubjectType" : {
+            "null": "",
+            "LECTURE": "LECTURE",
+            "PRACTICE": "PRACTICE",
+            "LAB": "LAB"
+        }
+    }
+}

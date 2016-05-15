@@ -1,0 +1,22 @@
+{
+  "generator-jhipster": {
+    "baseName": "mis",
+    "packageName": "com.dfirago.mis",
+    "packageFolder": "com/dfirago/mis",
+    "authenticationType": "session",
+    "hibernateCache": "no",
+    "clusteredHttpSession": "no",
+    "websocket": "no",
+    "databaseType": "sql",
+    "devDatabaseType": "h2Disk",
+    "prodDatabaseType": "postgresql",
+    "searchEngine": "no",
+    "useSass": false,
+    "buildTool": "maven",
+    "frontendBuilder": "grunt",
+    "enableTranslation": true,
+    "enableSocialSignIn": false,
+    "rememberMeKey": "5802840e8d524a4bee7a611d910ed3ea32ce6271",
+    "testFrameworks": []
+  }
+}

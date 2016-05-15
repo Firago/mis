@@ -1,0 +1,23 @@
+{
+    "misApp": {
+        "studentGroup" : {
+            "home": {
+                "title": "StudentGroups",
+                "createLabel": "Créer un nouveau StudentGroup",
+                "createOrEditLabel": "Créer ou éditer un StudentGroup",
+                "search": "Search for StudentGroup"
+            },
+            "created": "Un nouveau StudentGroup a été créé avec l'identifiant {{ param }}",
+            "updated": "Le StudentGroup avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le StudentGroup avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le StudentGroup {{ id }} ?"
+            },
+            "detail": {
+                "title": "StudentGroup"
+            },
+            "name": "Name"
+        }
+    }
+}
+

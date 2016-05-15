@@ -1,0 +1,22 @@
+{
+    "misApp": {
+        "studentGroup" : {
+            "home": {
+                "title": "StudentGroups",
+                "createLabel": "Create a new StudentGroup",
+                "createOrEditLabel": "Create or edit a StudentGroup",
+                "search": "Search for StudentGroup"
+            },
+            "created": "A new StudentGroup is created with identifier {{ param }}",
+            "updated": "A StudentGroup is updated with identifier {{ param }}",
+            "deleted": "A StudentGroup is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete StudentGroup {{ id }}?"
+            },
+            "detail": {
+                "title": "StudentGroup"
+            },
+            "name": "Name"
+        }
+    }
+}

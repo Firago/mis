@@ -1,0 +1,25 @@
+{
+    "misApp": {
+        "subjectEntry" : {
+            "home": {
+                "title": "SubjectEntrys",
+                "createLabel": "Créer un nouveau SubjectEntry",
+                "createOrEditLabel": "Créer ou éditer un SubjectEntry",
+                "search": "Search for SubjectEntry"
+            },
+            "created": "Un nouveau SubjectEntry a été créé avec l'identifiant {{ param }}",
+            "updated": "Le SubjectEntry avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le SubjectEntry avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le SubjectEntry {{ id }} ?"
+            },
+            "detail": {
+                "title": "SubjectEntry"
+            },
+            "subject": "Subject",
+            "teacher": "Teacher",
+            "studentGroup": "StudentGroup"
+        }
+    }
+}
+

@@ -1,0 +1,24 @@
+{
+    "misApp": {
+        "teacher" : {
+            "home": {
+                "title": "Teachers",
+                "createLabel": "Créer un nouveau Teacher",
+                "createOrEditLabel": "Créer ou éditer un Teacher",
+                "search": "Search for Teacher"
+            },
+            "created": "Un nouveau Teacher a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Teacher avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Teacher avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Teacher {{ id }} ?"
+            },
+            "detail": {
+                "title": "Teacher"
+            },
+            "user": "User",
+            "subject": "Subject"
+        }
+    }
+}
+

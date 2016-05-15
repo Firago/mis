@@ -1,0 +1,40 @@
+
+<div>
+    <h2><span translate="misApp.teacher.detail.title">Teacher</span> {{teacher.id}}</h2>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th translate="entity.detail.field">Field</th>
+                <th translate="entity.detail.value">Value</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>
+                    <span translate="misApp.teacher.user">user</span>
+                </td>
+                <td>
+                    {{teacher.user.lastName}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="misApp.teacher.subject">subject</span>
+                </td>
+                <td>
+                    <span ng-repeat="subject in teacher.subjects">
+                        <a class="form-control-static" ui-sref="subject.detail({id: {{subject.id}}})">{{subject.name}}</a>{{$last ? '' : ', '}}
+                    </span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

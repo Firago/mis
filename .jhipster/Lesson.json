@@ -1,0 +1,55 @@
+{
+    "relationships": [
+        {
+            "relationshipId": 1,
+            "relationshipName": "subjectEntry",
+            "otherEntityName": "subjectEntry",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "subject.name"
+        },
+        {
+            "relationshipId": 2,
+            "relationshipName": "teacher",
+            "otherEntityName": "teacher",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "user.lastName"
+        },
+        {
+            "relationshipId": 3,
+            "relationshipName": "studentGroup",
+            "otherEntityName": "studentGroup",
+            "relationshipType": "many-to-many",
+            "otherEntityField": "name",
+            "ownerSide": true
+        }
+    ],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "start",
+            "fieldType": "ZonedDateTime",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldId": 2,
+            "fieldName": "duration",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required",
+                "min"
+            ],
+            "fieldValidateRulesMin": 0
+        },
+        {
+            "fieldId": 3,
+            "fieldName": "room",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20160512193728",
+    "dto": "no",
+    "service": "no",
+    "pagination": "no"
+}

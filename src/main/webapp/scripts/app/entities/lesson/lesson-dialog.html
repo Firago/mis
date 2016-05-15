@@ -1,0 +1,86 @@
+
+<form name="editForm" role="form" novalidate ng-submit="save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="clear()">&times;</button>
+        <h4 class="modal-title" id="myLessonLabel" translate="misApp.lesson.home.createOrEditLabel">Create or edit a Lesson</h4>
+    </div>
+    <div class="modal-body">
+        <jh-alert-error></jh-alert-error>
+        <div class="form-group">
+            <label for="id" translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="lesson.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="misApp.lesson.start" for="field_start">Start</label>
+            <input id="field_start" type="text" class="form-control" uib-datepicker-popup="{{dateformat}}" ng-model="lesson.start" is-open="datePickerForStart.status.opened"
+            required/>
+            <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="datePickerForStartOpen($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+            </span>
+            <div ng-show="editForm.start.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.start.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.start.$error.ZonedDateTimelocal" translate="entity.validation.ZonedDateTimelocal">
+                    This field should be a date and time.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="misApp.lesson.duration" for="field_duration">Duration</label>
+            <input type="number" class="form-control" name="duration" id="field_duration"
+                    ng-model="lesson.duration"
+                    required min="0" />
+            <div ng-show="editForm.duration.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.duration.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.duration.$error.min" translate="entity.validation.min" translate-value-min="0">
+                    This field should be more than 0.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.duration.$error.number" translate="entity.validation.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="misApp.lesson.room" for="field_room">Room</label>
+            <input type="text" class="form-control" name="room" id="field_room"
+                    ng-model="lesson.room"
+                     />
+        </div>
+
+        <div class="form-group">
+            <label translate="misApp.lesson.subjectEntry" for="field_subjectEntry">subjectEntry</label>
+            <select class="form-control" id="field_subjectEntry" name="subjectEntry" ng-model="lesson.subjectEntry" ng-options="subjectEntry as subjectEntry.subject.name for subjectEntry in subjectentrys track by subjectEntry.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label translate="misApp.lesson.teacher" for="field_teacher">teacher</label>
+            <select class="form-control" id="field_teacher" name="teacher" ng-model="lesson.teacher" ng-options="teacher as teacher.user.lastName for teacher in teachers track by teacher.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label translate="misApp.lesson.studentGroup" for="field_studentGroup">studentGroup</label>
+            <select class="form-control" id="field_studentGroup" multiple name="studentGroup" ng-model="lesson.studentGroups" ng-options="studentGroup as studentGroup.name for studentGroup in studentgroups track by studentGroup.id"></select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

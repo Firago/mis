@@ -1,0 +1,72 @@
+
+<div>
+    <h2><span translate="misApp.lesson.detail.title">Lesson</span> {{lesson.id}}</h2>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th translate="entity.detail.field">Field</th>
+                <th translate="entity.detail.value">Value</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>
+                    <span translate="misApp.lesson.start">Start</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{lesson.start | date:'medium'}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="misApp.lesson.duration">Duration</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{lesson.duration}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="misApp.lesson.room">Room</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{lesson.room}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="misApp.lesson.subjectEntry">subjectEntry</span>
+                </td>
+                <td>
+                    <a class="form-control-static" ui-sref="subjectEntry.detail({id:lesson.subjectEntry.id})">{{lesson.subjectEntry.subject.name}}</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="misApp.lesson.teacher">teacher</span>
+                </td>
+                <td>
+                    <a class="form-control-static" ui-sref="teacher.detail({id:lesson.teacher.id})">{{lesson.teacher.user.lastName}}</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="misApp.lesson.studentGroup">studentGroup</span>
+                </td>
+                <td>
+                    <span ng-repeat="studentGroup in lesson.studentGroups">
+                        <a class="form-control-static" ui-sref="studentGroup.detail({id: {{studentGroup.id}}})">{{studentGroup.name}}</a>{{$last ? '' : ', '}}
+                    </span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

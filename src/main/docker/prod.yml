@@ -1,0 +1,10 @@
+mis-postgresql:
+  container_name: mis-postgresql
+  image: postgres:9.4.5
+  # volumes:
+  #   - ~/volumes/jhipster/mis/postgresql/:/var/lib/postgresql/
+  environment:
+    - POSTGRES_USER=mis
+    - POSTGRES_PASSWORD=
+  ports:
+    - "5432:5432"

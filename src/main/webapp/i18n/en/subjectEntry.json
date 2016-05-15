@@ -1,0 +1,24 @@
+{
+    "misApp": {
+        "subjectEntry" : {
+            "home": {
+                "title": "SubjectEntrys",
+                "createLabel": "Create a new SubjectEntry",
+                "createOrEditLabel": "Create or edit a SubjectEntry",
+                "search": "Search for SubjectEntry"
+            },
+            "created": "A new SubjectEntry is created with identifier {{ param }}",
+            "updated": "A SubjectEntry is updated with identifier {{ param }}",
+            "deleted": "A SubjectEntry is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete SubjectEntry {{ id }}?"
+            },
+            "detail": {
+                "title": "SubjectEntry"
+            },
+            "subject": "Subject",
+            "teacher": "Teacher",
+            "studentGroup": "StudentGroup"
+        }
+    }
+}

@@ -1,0 +1,24 @@
+{
+    "relationships": [
+        {
+            "relationshipId": 1,
+            "relationshipName": "user",
+            "otherEntityName": "user",
+            "relationshipType": "one-to-one",
+            "otherEntityField": "surname",
+            "ownerSide": true
+        },
+        {
+            "relationshipId": 2,
+            "relationshipName": "studentGroup",
+            "otherEntityName": "studentGroup",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "name"
+        }
+    ],
+    "fields": [],
+    "changelogDate": "20160512193319",
+    "dto": "no",
+    "service": "no",
+    "pagination": "pagination"
+}

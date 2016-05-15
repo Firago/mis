@@ -1,0 +1,25 @@
+{
+    "relationships": [
+        {
+            "relationshipId": 1,
+            "relationshipName": "user",
+            "otherEntityName": "user",
+            "relationshipType": "one-to-one",
+            "otherEntityField": "surname",
+            "ownerSide": true
+        },
+        {
+            "relationshipId": 2,
+            "relationshipName": "subject",
+            "otherEntityName": "subject",
+            "relationshipType": "many-to-many",
+            "otherEntityField": "name",
+            "ownerSide": true
+        }
+    ],
+    "fields": [],
+    "changelogDate": "20160512190530",
+    "dto": "no",
+    "service": "no",
+    "pagination": "pagination"
+}
