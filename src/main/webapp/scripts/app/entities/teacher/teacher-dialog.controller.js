@@ -1,12 +1,11 @@
 'use strict';
 
 angular.module('misApp').controller('TeacherDialogController',
-    ['$scope', '$stateParams', '$uibModalInstance', '$q', 'entity', 'Teacher', 'User', 'Subject',
-        function($scope, $stateParams, $uibModalInstance, $q, entity, Teacher, User, Subject) {
+    ['$scope', '$stateParams', '$uibModalInstance', '$q', 'entity', 'Teacher', 'User',
+        function($scope, $stateParams, $uibModalInstance, $q, entity, Teacher, User) {
 
         $scope.teacher = entity;
         $scope.users = User.query();
-        $scope.subjects = Subject.query();
         $scope.load = function(id) {
             Teacher.get({id : id}, function(result) {
                 $scope.teacher = result;

@@ -4,6 +4,7 @@ package com.dfirago.mis.domain.enumeration;
  * The SubjectType enumeration.
  */
 public enum SubjectType {
+
     LECTURE("W"),
     PRACTICE("C"),
     LAB("L");

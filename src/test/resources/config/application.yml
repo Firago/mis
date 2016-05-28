@@ -59,6 +59,11 @@ jhipster:
         maxPoolSize: 50
         queueCapacity: 10000
     security:
+        authentication:
+            xauth:
+                secret: myXAuthSecret
+                # Token is valid 30 minutes
+                tokenValidityInSeconds: 1800
         rememberme:
             # security key (this key should be unique for your application, and kept secret)
             key: 5802840e8d524a4bee7a611d910ed3ea32ce6271

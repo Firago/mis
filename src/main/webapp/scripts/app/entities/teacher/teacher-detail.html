@@ -15,17 +15,7 @@
                     <span translate="misApp.teacher.user">user</span>
                 </td>
                 <td>
-                    {{teacher.user.lastName}}
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <span translate="misApp.teacher.subject">subject</span>
-                </td>
-                <td>
-                    <span ng-repeat="subject in teacher.subjects">
-                        <a class="form-control-static" ui-sref="subject.detail({id: {{subject.id}}})">{{subject.name}}</a>{{$last ? '' : ', '}}
-                    </span>
+                    {{teacher.user.surname}}
                 </td>
             </tr>
             </tbody>

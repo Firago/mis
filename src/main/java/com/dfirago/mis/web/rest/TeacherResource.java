@@ -3,9 +3,6 @@ package com.dfirago.mis.web.rest;
 import com.codahale.metrics.annotation.Timed;
 import com.dfirago.mis.domain.Teacher;
 import com.dfirago.mis.repository.TeacherRepository;
-import com.dfirago.mis.service.TimetableService;
-import com.dfirago.mis.web.rest.dto.TimetableRequestDTO;
-import com.dfirago.mis.web.rest.dto.TimetableResponseDTO;
 import com.dfirago.mis.web.rest.util.HeaderUtil;
 import com.dfirago.mis.web.rest.util.PaginationUtil;
 import org.slf4j.Logger;
@@ -19,7 +16,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.inject.Inject;
-import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
@@ -33,12 +29,10 @@ import java.util.Optional;
 public class TeacherResource {
 
     private final Logger log = LoggerFactory.getLogger(TeacherResource.class);
-
+        
     @Inject
     private TeacherRepository teacherRepository;
-    @Inject
-    private TimetableService timetableService;
-
+    
     /**
      * POST  /teachers -> Create a new teacher.
      */
@@ -85,7 +79,7 @@ public class TeacherResource {
     public ResponseEntity<List<Teacher>> getAllTeachers(Pageable pageable)
         throws URISyntaxException {
         log.debug("REST request to get a page of Teachers");
-        Page<Teacher> page = teacherRepository.findAll(pageable);
+        Page<Teacher> page = teacherRepository.findAll(pageable); 
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/teachers");
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }
@@ -99,7 +93,7 @@ public class TeacherResource {
     @Timed
     public ResponseEntity<Teacher> getTeacher(@PathVariable Long id) {
         log.debug("REST request to get Teacher : {}", id);
-        Teacher teacher = teacherRepository.findOneWithEagerRelationships(id);
+        Teacher teacher = teacherRepository.findOne(id);
         return Optional.ofNullable(teacher)
             .map(result -> new ResponseEntity<>(
                 result,
@@ -118,18 +112,5 @@ public class TeacherResource {
         log.debug("REST request to delete Teacher : {}", id);
         teacherRepository.delete(id);
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert("teacher", id.toString())).build();
-    }
-
-    /**
-     * POST  /teachers/:id/timetable -> Retrieve timetable for teachers with id={id}
-     */
-    @RequestMapping(value = "/teachers/{id}/timetable",
-        method = RequestMethod.POST,
-        produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<TimetableResponseDTO> getTimetableForGroup(@PathVariable Long id, @Valid @RequestBody TimetableRequestDTO request) throws URISyntaxException {
-        log.debug("REST request to get timetable for Teacher : {}", request);
-        TimetableResponseDTO response = timetableService
-            .generateTimetableForTeacher(id, request.getFrom(), request.getTo());
-        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 }

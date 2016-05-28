@@ -27,12 +27,12 @@
             <column name="student_group_id" type="bigint"/>
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
-        
+
         <addForeignKeyConstraint baseColumnNames="user_id"
                                  baseTableName="student"
                                  constraintName="fk_student_user_id"
                                  referencedColumnNames="id"
-                                 referencedTableName="jhi_user"/>
+                                 referencedTableName="user"/>
 
         <addForeignKeyConstraint baseColumnNames="student_group_id"
                                  baseTableName="student"

@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('misApp')
-    .controller('TeacherDetailController', function ($scope, $rootScope, $stateParams, entity, Teacher, User, Subject) {
+    .controller('TeacherDetailController', function ($scope, $rootScope, $stateParams, entity, Teacher, User) {
         $scope.teacher = entity;
         $scope.load = function (id) {
             Teacher.get({id: id}, function(result) {

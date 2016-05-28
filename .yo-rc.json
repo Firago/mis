@@ -3,7 +3,7 @@
     "baseName": "mis",
     "packageName": "com.dfirago.mis",
     "packageFolder": "com/dfirago/mis",
-    "authenticationType": "session",
+    "authenticationType": "xauth",
     "hibernateCache": "no",
     "clusteredHttpSession": "no",
     "websocket": "no",

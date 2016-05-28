@@ -21,12 +21,6 @@ public class Teacher implements Serializable {
     @OneToOne
     private User user;
 
-    @ManyToMany
-    @JoinTable(name = "teacher_subject",
-               joinColumns = @JoinColumn(name="teachers_id", referencedColumnName="ID"),
-               inverseJoinColumns = @JoinColumn(name="subjects_id", referencedColumnName="ID"))
-    private Set<Subject> subjects = new HashSet<>();
-
     public Long getId() {
         return id;
     }
@@ -41,14 +35,6 @@ public class Teacher implements Serializable {
 
     public void setUser(User user) {
         this.user = user;
-    }
-
-    public Set<Subject> getSubjects() {
-        return subjects;
-    }
-
-    public void setSubjects(Set<Subject> subjects) {
-        this.subjects = subjects;
     }
 
     @Override
