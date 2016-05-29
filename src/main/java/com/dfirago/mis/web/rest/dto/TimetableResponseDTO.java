@@ -1,7 +1,7 @@
 package com.dfirago.mis.web.rest.dto;
 
 import java.time.ZonedDateTime;
-import java.util.Set;
+import java.util.List;
 
 /**
  * Created by dmfi on 15/05/2016.
@@ -10,7 +10,7 @@ public class TimetableResponseDTO {
 
     private ZonedDateTime from;
     private ZonedDateTime to;
-    private Set<DayDTO> days;
+    private List<DayDTO> days;
 
     public TimetableResponseDTO() {
     }
@@ -31,11 +31,11 @@ public class TimetableResponseDTO {
         this.to = to;
     }
 
-    public Set<DayDTO> getDays() {
+    public List<DayDTO> getDays() {
         return days;
     }
 
-    public void setDays(Set<DayDTO> days) {
+    public void setDays(List<DayDTO> days) {
         this.days = days;
     }
 

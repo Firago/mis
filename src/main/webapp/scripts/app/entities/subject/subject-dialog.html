@@ -28,9 +28,9 @@
         <div class="form-group">
             <label class="control-label" translate="misApp.subject.type" for="field_type">Type</label>
             <select class="form-control" name="type" ng-model="subject.type" id="field_type" required>
-                <option value="LECTURE" translate="misApp.SubjectType.LECTURE">LECTURE</option>
-                <option value="PRACTICE" translate="misApp.SubjectType.PRACTICE">PRACTICE</option>
-                <option value="LAB" translate="misApp.SubjectType.LAB">LAB</option>
+                <option value="LECTURE" translate="misApp.SubjectType.W">Lecture</option>
+                <option value="PRACTICE" translate="misApp.SubjectType.C">Practice</option>
+                <option value="LAB" translate="misApp.SubjectType.L">Lab</option>
             </select>
             <div ng-show="editForm.type.$invalid">
                 <p class="help-block"

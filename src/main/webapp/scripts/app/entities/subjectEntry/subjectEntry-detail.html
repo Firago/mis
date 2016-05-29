@@ -15,7 +15,7 @@
                     <span translate="misApp.subjectEntry.subject">subject</span>
                 </td>
                 <td>
-                    <a class="form-control-static" ui-sref="subject.detail({id:subjectEntry.subject.id})">{{subjectEntry.subject.name}}</a>
+                    <a class="form-control-static" ui-sref="subject.detail({id:subjectEntry.subject.id})">{{subjectEntry.subject.name}} ({{subjectEntry.subject.type.shortName}})</a>
                 </td>
             </tr>
             <tr>
@@ -23,7 +23,7 @@
                     <span translate="misApp.subjectEntry.teacher">teacher</span>
                 </td>
                 <td>
-                    <a class="form-control-static" ui-sref="teacher.detail({id:subjectEntry.teacher.id})">{{subjectEntry.teacher.user.lastName}}</a>
+                    <a class="form-control-static" ui-sref="teacher.detail({id:subjectEntry.teacher.id})">{{subjectEntry.teacher.user.firstName}} {{subjectEntry.teacher.user.lastName}}</a>
                 </td>
             </tr>
             <tr>

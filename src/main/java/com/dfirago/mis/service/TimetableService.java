@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import javax.inject.Inject;
 import java.time.ZonedDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -30,7 +31,9 @@ public class TimetableService {
             List<LessonDTO> lessonDTOList = TimetableUtils.convertLessonToDtoWithTeacher(lessonsPerDay.get(dayDTO));
             dayDTO.setLessons(lessonDTOList);
         }
-        timetable.setDays(lessonsPerDay.keySet());
+        List<DayDTO> days = new ArrayList<>(lessonsPerDay.keySet());
+        days.sort((o1, o2) -> o1.getDate().compareTo(o2.getDate()));
+        timetable.setDays(days);
         timetable.setFrom(from);
         timetable.setTo(to);
         return timetable;
@@ -44,7 +47,9 @@ public class TimetableService {
             List<LessonDTO> lessonDTOList = TimetableUtils.convertLessonToDtoWithGroup(lessonsPerDay.get(dayDTO));
             dayDTO.setLessons(lessonDTOList);
         }
-        timetable.setDays(lessonsPerDay.keySet());
+        List<DayDTO> days = new ArrayList<>(lessonsPerDay.keySet());
+        days.sort((o1, o2) -> o1.getDate().compareTo(o2.getDate()));
+        timetable.setDays(days);
         timetable.setFrom(from);
         timetable.setTo(to);
         return timetable;

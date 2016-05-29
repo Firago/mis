@@ -6,7 +6,7 @@
             <div class="col-xs-4 no-padding-left">
                 <button class="btn btn-primary" ui-sref="subject.new" >
                     <span class="glyphicon glyphicon-plus"></span>
-                    <span 
+                    <span
                         translate="misApp.subject.home.createLabel">Create new Subject
                     </span>
                 </button>
@@ -28,12 +28,12 @@
                 <tr ng-repeat="subject in subjects track by subject.id">
                     <td><a ui-sref="subject.detail({id:subject.id})">{{subject.id}}</a></td>
                     <td>{{subject.name}}</td>
-                    <td translate="{{'misApp.SubjectType.' + subject.type}}">{{subject.type}}</td>
+                    <td translate="{{'misApp.SubjectType.' + subject.type.shortName}}">{{subject.type.shortName}}</td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
                             <button type="submit"
                                     ui-sref="subject.detail({id:subject.id})"
-                                    class="btn btn-info btn-sm"> 
+                                    class="btn btn-info btn-sm">
                                 <span class="glyphicon glyphicon-eye-open"></span>
                                 <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
                             </button>
@@ -45,7 +45,7 @@
                             </button>
                             <button type="submit"
                                     ui-sref="subject.delete({id:subject.id})"
-                                    class="btn btn-danger btn-sm">                                    
+                                    class="btn btn-danger btn-sm">
                                 <span class="glyphicon glyphicon-remove-circle"></span>
                                 <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
                             </button>
