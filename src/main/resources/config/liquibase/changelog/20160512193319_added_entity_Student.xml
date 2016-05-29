@@ -32,7 +32,7 @@
                                  baseTableName="student"
                                  constraintName="fk_student_user_id"
                                  referencedColumnNames="id"
-                                 referencedTableName="user"/>
+                                 referencedTableName="jhi_user"/>
 
         <addForeignKeyConstraint baseColumnNames="student_group_id"
                                  baseTableName="student"

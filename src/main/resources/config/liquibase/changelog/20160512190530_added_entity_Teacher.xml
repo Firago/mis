@@ -31,7 +31,7 @@
                                  baseTableName="teacher"
                                  constraintName="fk_teacher_user_id"
                                  referencedColumnNames="id"
-                                 referencedTableName="user"/>
+                                 referencedTableName="jhi_user"/>
 
     </changeSet>
 </databaseChangeLog>

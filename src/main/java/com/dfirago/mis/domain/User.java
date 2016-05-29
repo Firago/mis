@@ -16,7 +16,7 @@ import java.time.ZonedDateTime;
  * A user.
  */
 @Entity
-@Table(name = "user")
+@Table(name = "jhi_user")
 public class User extends AbstractAuditingEntity implements Serializable {
 
     @Id
@@ -70,7 +70,7 @@ public class User extends AbstractAuditingEntity implements Serializable {
     @JsonIgnore
     @ManyToMany
     @JoinTable(
-        name = "user_authority",
+        name = "jhi_user_authority",
         joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "id")},
         inverseJoinColumns = {@JoinColumn(name = "authority_name", referencedColumnName = "name")})
     private Set<Authority> authorities = new HashSet<>();
