@@ -2,9 +2,9 @@
     "misApp": {
         "SubjectType" : {
             "null": "",
-            "W": "Lecture",
-            "C": "Practice",
-            "L": "Lab"
+            "LECTURE": "Lecture",
+            "PRACTICE": "Practice",
+            "LAB": "Lab"
         }
     }
 }

@@ -28,7 +28,7 @@
                 <tr ng-repeat="subject in subjects track by subject.id">
                     <td><a ui-sref="subject.detail({id:subject.id})">{{subject.id}}</a></td>
                     <td>{{subject.name}}</td>
-                    <td translate="{{'misApp.SubjectType.' + subject.type.shortName}}">{{subject.type.shortName}}</td>
+                    <td translate="{{'misApp.SubjectType.' + subject.type}}">{{subject.type}}</td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
                             <button type="submit"
