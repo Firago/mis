@@ -6,7 +6,7 @@
             <div class="col-xs-4 no-padding-left">
                 <button class="btn btn-primary" ui-sref="student.new" >
                     <span class="glyphicon glyphicon-plus"></span>
-                    <span 
+                    <span
                         translate="misApp.student.home.createLabel">Create new Student
                     </span>
                 </button>
@@ -28,7 +28,7 @@
                 <tr ng-repeat="student in students track by student.id">
                     <td><a ui-sref="student.detail({id:student.id})">{{student.id}}</a></td>
                     <td>
-                        {{student.user.surname}}
+                        {{student.user.firstName}} {{student.user.lastName}}
                     </td>
                     <td>
                         <a ui-sref="studentGroup.detail({id:student.studentGroup.id})">{{student.studentGroup.name}}</a>
@@ -37,7 +37,7 @@
                         <div class="btn-group flex-btn-group-container">
                             <button type="submit"
                                     ui-sref="student.detail({id:student.id})"
-                                    class="btn btn-info btn-sm"> 
+                                    class="btn btn-info btn-sm">
                                 <span class="glyphicon glyphicon-eye-open"></span>
                                 <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
                             </button>
@@ -49,7 +49,7 @@
                             </button>
                             <button type="submit"
                                     ui-sref="student.delete({id:student.id})"
-                                    class="btn btn-danger btn-sm">                                    
+                                    class="btn btn-danger btn-sm">
                                 <span class="glyphicon glyphicon-remove-circle"></span>
                                 <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
                             </button>
