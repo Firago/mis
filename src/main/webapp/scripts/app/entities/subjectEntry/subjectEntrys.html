@@ -29,7 +29,7 @@
                 <tr ng-repeat="subjectEntry in subjectEntrys track by subjectEntry.id">
                     <td><a ui-sref="subjectEntry.detail({id:subjectEntry.id})">{{subjectEntry.id}}</a></td>
                     <td>
-                        <a ui-sref="subject.detail({id:subjectEntry.subject.id})">{{subjectEntry.subject.name}} ({{subjectEntry.subject.type.shortName}})</a>
+                        <a ui-sref="subject.detail({id:subjectEntry.subject.id})">{{subjectEntry.subject.name}} ({{subjectEntry.subject.type}})</a>
                     </td>
                     <td>
                         <a ui-sref="teacher.detail({id:subjectEntry.teacher.id})">{{subjectEntry.teacher.user.firstName}} {{subjectEntry.teacher.user.lastName}}</a>
