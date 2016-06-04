@@ -3,3 +3,11 @@ id;login;password_hash;first_name;last_name;email;activated;lang_key;created_by
 2;anonymousUser;$2a$10$j8S5d7Sr7.8VTOYNviDPOeWX8KcYILUVJBsYV83Y5NtECayypx9lO;Anonymous;User;anonymous@localhost;true;en;system
 3;admin;$2a$10$gSAhZrxMllrbgj/kkK9UceBPpChGWJA7SYIb1Mqo.n5aNLq1/oRrC;Administrator;Administrator;admin@localhost;true;en;system
 4;user;$2a$10$VEjxo0jq2YG9Rbk2HmX9S.k1uZBGYUHdUcid3g/vfiEl7lwWgOH/K;User;User;user@localhost;true;en;system
+5;dmfi;$2a$10$VEjxo0jq2YG9Rbk2HmX9S.k1uZBGYUHdUcid3g/vfiEl7lwWgOH/K;Dmytro;Firago;dmfi@wsg-mis.com;true;en;system
+6;diso;$2a$10$VEjxo0jq2YG9Rbk2HmX9S.k1uZBGYUHdUcid3g/vfiEl7lwWgOH/K;Diana;Soloviova;diso@wsg-mis.com;true;en;system
+7;town;$2a$10$VEjxo0jq2YG9Rbk2HmX9S.k1uZBGYUHdUcid3g/vfiEl7lwWgOH/K;Tomasz;Wnuk;town@wsg-mis.com;true;en;system
+8;jago;$2a$10$VEjxo0jq2YG9Rbk2HmX9S.k1uZBGYUHdUcid3g/vfiEl7lwWgOH/K;Jacek;Gospodarczyk;jago@wsg-mis.com;true;en;system
+9;tooc;$2a$10$VEjxo0jq2YG9Rbk2HmX9S.k1uZBGYUHdUcid3g/vfiEl7lwWgOH/K;Tomasz;Ocetkiewicz;tooc@wsg-mis.com;true;en;system
+10;jeba;$2a$10$VEjxo0jq2YG9Rbk2HmX9S.k1uZBGYUHdUcid3g/vfiEl7lwWgOH/K;Jerzy;Bakalarczyk;jeba@wsg-mis.com;true;en;system
+11;hatu;$2a$10$VEjxo0jq2YG9Rbk2HmX9S.k1uZBGYUHdUcid3g/vfiEl7lwWgOH/K;Hanna;Tuzylak;hatu@wsg-mis.com;true;en;system
+12;dazu;$2a$10$VEjxo0jq2YG9Rbk2HmX9S.k1uZBGYUHdUcid3g/vfiEl7lwWgOH/K;Daniel;Zuromski;dazu@wsg-mis.com;true;en;system

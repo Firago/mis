@@ -33,5 +33,9 @@
                                  referencedColumnNames="id"
                                  referencedTableName="jhi_user"/>
 
+        <loadData encoding="UTF-8"
+                  file="config/liquibase/teachers.csv"
+                  separator=";"
+                  tableName="teacher"/>
     </changeSet>
 </databaseChangeLog>
