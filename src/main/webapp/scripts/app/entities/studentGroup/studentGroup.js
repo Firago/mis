@@ -24,6 +24,29 @@ angular.module('misApp')
                     }]
                 }
             })
+            .state('studentGroup.timetable', {
+                parent: 'entity',
+                url: '/studentGroup/{id}/timetable',
+                data: {
+                    authorities: ['ROLE_USER'],
+                    pageTitle: 'misApp.studentGroup.timetable.title'
+                },
+                views: {
+                    'content@': {
+                        templateUrl: 'scripts/app/entities/studentGroup/studentGroup-timetable.html',
+                        controller: 'StudentGroupTimetableController'
+                    }
+                },
+                resolve: {
+                    translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
+                        $translatePartialLoader.addPart('studentGroup');
+                        return $translate.refresh();
+                    }],
+                    entity: ['$stateParams', 'StudentGroup', function($stateParams, StudentGroup) {
+                        return StudentGroup.timetable({id : $stateParams.id}, {});
+                    }]
+                }
+            })
             .state('studentGroup.detail', {
                 parent: 'entity',
                 url: '/studentGroup/{id}',

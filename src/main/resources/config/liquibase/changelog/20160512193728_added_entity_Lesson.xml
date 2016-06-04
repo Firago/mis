@@ -24,20 +24,20 @@
             <column name="start" type="timestamp">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="duration" type="integer">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="room" type="varchar(255)"/>
-            
+
             <column name="subject_entry_id" type="bigint"/>
             <column name="teacher_id" type="bigint"/>
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
         <dropDefaultValue tableName="lesson" columnName="start" columnDataType="datetime"/>
 
-        
+
         <addForeignKeyConstraint baseColumnNames="subject_entry_id"
                                  baseTableName="lesson"
                                  constraintName="fk_lesson_subjectentry_id"
@@ -49,6 +49,11 @@
                                  constraintName="fk_lesson_teacher_id"
                                  referencedColumnNames="id"
                                  referencedTableName="teacher"/>
+
+        <loadData encoding="UTF-8"
+                  file="config/liquibase/lessons.csv"
+                  separator=";"
+                  tableName="lesson"/>
 
         <createTable tableName="lesson_student_group">
             <column name="student_groups_id" type="bigint">
@@ -72,6 +77,11 @@
                                  constraintName="fk_lesson_student_group_lesson_id"
                                  referencedColumnNames="id"
                                  referencedTableName="student_group"/>
-        
+
+        <loadData encoding="UTF-8"
+                  file="config/liquibase/x-lesson-student-groups.csv"
+                  separator=";"
+                  tableName="lesson_student_group"/>
+
     </changeSet>
 </databaseChangeLog>

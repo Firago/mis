@@ -4,9 +4,9 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-xs-4 no-padding-left">
-                <button class="btn btn-primary" ui-sref="studentGroup.new" >
+                <button class="btn btn-primary" ui-sref="studentGroup.new">
                     <span class="glyphicon glyphicon-plus"></span>
-                    <span 
+                    <span
                         translate="misApp.studentGroup.home.createLabel">Create new StudentGroup
                     </span>
                 </button>
@@ -17,43 +17,52 @@
     <div class="table-responsive">
         <table class="jh-table table table-striped">
             <thead>
-                <tr jh-sort="predicate" ascending="reverse" callback="loadAll()">
-                    <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="name"><span translate="misApp.studentGroup.name">Name</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th></th>
-                </tr>
+            <tr jh-sort="predicate" ascending="reverse" callback="loadAll()">
+                <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span
+                    class="glyphicon glyphicon-sort"></span></th>
+                <th jh-sort-by="name"><span translate="misApp.studentGroup.name">Name</span> <span
+                    class="glyphicon glyphicon-sort"></span></th>
+                <th></th>
+            </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="studentGroup in studentGroups track by studentGroup.id">
-                    <td><a ui-sref="studentGroup.detail({id:studentGroup.id})">{{studentGroup.id}}</a></td>
-                    <td>{{studentGroup.name}}</td>
-                    <td class="text-right">
-                        <div class="btn-group flex-btn-group-container">
-                            <button type="submit"
-                                    ui-sref="studentGroup.detail({id:studentGroup.id})"
-                                    class="btn btn-info btn-sm"> 
-                                <span class="glyphicon glyphicon-eye-open"></span>
-                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
-                            </button>
-                            <button type="submit"
-                                    ui-sref="studentGroup.edit({id:studentGroup.id})"
-                                    class="btn btn-primary btn-sm">
-                                <span class="glyphicon glyphicon-pencil"></span>
-                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
-                            </button>
-                            <button type="submit"
-                                    ui-sref="studentGroup.delete({id:studentGroup.id})"
-                                    class="btn btn-danger btn-sm">                                    
-                                <span class="glyphicon glyphicon-remove-circle"></span>
-                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
-                            </button>
-                        </div>
-                    </td>
-                </tr>
+            <tr ng-repeat="studentGroup in studentGroups track by studentGroup.id">
+                <td><a ui-sref="studentGroup.detail({id:studentGroup.id})">{{studentGroup.id}}</a></td>
+                <td>{{studentGroup.name}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                ui-sref="studentGroup.timetable({id:studentGroup.id})"
+                                class="btn btn-success btn-sm">
+                            <span class="glyphicon glyphicon-list"></span>
+                            <span class="hidden-xs hidden-sm" translate="entity.action.timetable"></span>
+                        </button>
+                        <button type="submit"
+                                ui-sref="studentGroup.detail({id:studentGroup.id})"
+                                class="btn btn-info btn-sm">
+                            <span class="glyphicon glyphicon-eye-open"></span>
+                            <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                        </button>
+                        <button type="submit"
+                                ui-sref="studentGroup.edit({id:studentGroup.id})"
+                                class="btn btn-warning btn-sm">
+                            <span class="glyphicon glyphicon-pencil"></span>
+                            <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                        </button>
+                        <button type="submit"
+                                ui-sref="studentGroup.delete({id:studentGroup.id})"
+                                class="btn btn-danger btn-sm">
+                            <span class="glyphicon glyphicon-remove-circle"></span>
+                            <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
             </tbody>
         </table>
     </div>
     <div class="text-center">
-        <uib-pagination class="pagination-sm" total-items="totalItems" ng-model="page" ng-change="loadAll()"></uib-pagination>
+        <uib-pagination class="pagination-sm" total-items="totalItems" ng-model="page"
+                        ng-change="loadAll()"></uib-pagination>
     </div>
 </div>

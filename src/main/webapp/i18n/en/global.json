@@ -90,7 +90,8 @@
             "delete": "Delete",
             "edit": "Edit",
             "save": "Save",
-            "view": "View"
+            "view": "View",
+            "timetable": "Timetable"
         },
         "detail": {
             "field": "Field",
@@ -120,5 +121,5 @@
         "emailexists": "E-mail is already in use!",
         "idexists": "A new {{ entityName }} cannot already have an ID"
     },
-    "footer": "This is your footer"
+    "footer": "WSG Management Information System"
 }

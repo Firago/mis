@@ -4,6 +4,7 @@ import com.codahale.metrics.annotation.Timed;
 import com.dfirago.mis.domain.StudentGroup;
 import com.dfirago.mis.repository.StudentGroupRepository;
 import com.dfirago.mis.service.TimetableService;
+import com.dfirago.mis.util.DateUtils;
 import com.dfirago.mis.web.rest.dto.TimetableRequestDTO;
 import com.dfirago.mis.web.rest.dto.TimetableResponseDTO;
 import com.dfirago.mis.web.rest.util.HeaderUtil;
@@ -22,6 +23,7 @@ import javax.inject.Inject;
 import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.time.ZonedDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -129,8 +131,11 @@ public class StudentGroupResource {
     @Timed
     public ResponseEntity<TimetableResponseDTO> getTimetableForGroup(@PathVariable Long id, @Valid @RequestBody TimetableRequestDTO request) throws URISyntaxException {
         log.debug("REST request to get timetable for StudentGroup : {}", request);
+        ZonedDateTime now = ZonedDateTime.now();
+        ZonedDateTime from = request.getFrom() == null ? DateUtils.getWeekStart(now) : request.getFrom();
+        ZonedDateTime to = request.getTo() == null ? DateUtils.getWeekEnd(now) : request.getTo();
         TimetableResponseDTO response = timetableService
-            .generateTimetableForGroup(id, request.getFrom(), request.getTo());
+            .generateTimetableForGroup(id, from, to);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 }

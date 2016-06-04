@@ -26,7 +26,7 @@
             <column name="student_group_id" type="bigint"/>
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
-        
+
         <addForeignKeyConstraint baseColumnNames="subject_id"
                                  baseTableName="subject_entry"
                                  constraintName="fk_subjectentry_subject_id"
@@ -45,5 +45,9 @@
                                  referencedColumnNames="id"
                                  referencedTableName="student_group"/>
 
+        <loadData encoding="UTF-8"
+                  file="config/liquibase/subject-entries.csv"
+                  separator=";"
+                  tableName="subject_entry"/>
     </changeSet>
 </databaseChangeLog>
