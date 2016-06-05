@@ -1,4 +1,9 @@
 <div>
+    <style type="text/css">
+        .well {
+            padding: 0
+        }
+    </style>
     <div id="wrapper">
         <div id="left-sidebar-wrapper" class="sidebar-wrapper" ng-click="left()">
             <span class="glyphicon glyphicon-menu-left menu-glyphicon" aria-hidden="true"></span>
@@ -14,7 +19,7 @@
                     </div>
                 </div>
                 <div class="timetable-column interval-column">
-                    <div class="column-cell" ng-repeat="interval in timetable.intervals"
+                    <div class="column-cell" ng-repeat="interval in content.intervals"
                          ng-class="{'interval-type-break': interval.type == 'break'}"
                          ng-style="{'height': interval.height + 'px', 'line-height': interval.height + 'px'}">
                         <div class="interval-container" ng-if="interval.type == 'lesson'">
@@ -24,16 +29,16 @@
                 </div>
             </div>
             <div id="slider-wrapper">
-                <div id="slider-content" ng-style="{left: sliderOffset + 'px'}">
+                <div id="slider-content" ng-style="{width: sliderWidth + 'px', left: sliderOffset + 'px'}">
                     <div class="timetable-header">
                         <div class="header-cell" ng-style="{width: column.width + 'px'}"
-                             ng-repeat="column in timetable.columns">
+                             ng-repeat="column in content.columns">
                             <span>{{column.header}}</span>
                             <span class="separator-vertical"></span>
                         </div>
                     </div>
                     <div class="timetable-layout">
-                        <div class="timetable-column" ng-repeat="column in timetable.columns"
+                        <div class="timetable-column" ng-repeat="column in content.columns"
                              ng-style="{width: column.width + 'px'}">
                             <div class="column-cell" ng-repeat="entry in column.entries"
                                  ng-style="{height: cellHeight + 'px', background: entry.color}">

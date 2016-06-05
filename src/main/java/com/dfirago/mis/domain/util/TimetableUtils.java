@@ -10,9 +10,7 @@ import com.dfirago.mis.web.rest.dto.LessonDTO;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
@@ -61,16 +59,36 @@ public class TimetableUtils {
         return dto;
     }
 
-    public static Map<DayDTO, List<Lesson>> groupLessonsByDays(List<Lesson> lessons) {
-        Map<DayDTO, List<Lesson>> lessonsPerDay = new HashMap<>();
-        for (Lesson lesson : lessons) {
-            DayDTO dayDTO = zonedDateTimeToDayDto(lesson.getStart());
-            if (lessonsPerDay.get(dayDTO) == null) {
-                lessonsPerDay.put(dayDTO, new ArrayList<>());
-            }
-            lessonsPerDay.get(dayDTO).add(lesson);
+    public static List<DayDTO> generateEmptyDays(final ZonedDateTime from, final ZonedDateTime to) {
+        List<DayDTO> result = new ArrayList<>();
+        ZonedDateTime iterator = from;
+        while (iterator.isBefore(to)) {
+            result.add(zonedDateTimeToDayDto(iterator));
+            iterator = iterator.plusDays(1);
         }
-        return lessonsPerDay;
+        return result;
+    }
+
+    public static List<DayDTO> groupLessonsByDaysForGroup(final List<Lesson> lessons, final ZonedDateTime from, final ZonedDateTime to) {
+        List<DayDTO> days = TimetableUtils.generateEmptyDays(from, to);
+        for (DayDTO day : days) {
+            lessons.stream().filter(
+                lesson -> zonedDateTimeToDayDto(lesson.getStart()).equals(day))
+                .forEach(
+                    lesson1 -> day.getLessons().add(convertLessonToDtoWithTeacher(lesson1)));
+        }
+        return days;
+    }
+
+    public static List<DayDTO> groupLessonsByDaysForTeacher(final List<Lesson> lessons, final ZonedDateTime from, final ZonedDateTime to) {
+        List<DayDTO> days = TimetableUtils.generateEmptyDays(from, to);
+        for (DayDTO day : days) {
+            lessons.stream().filter(
+                lesson -> zonedDateTimeToDayDto(lesson.getStart()).equals(day))
+                .forEach(
+                    lesson1 -> day.getLessons().add(convertLessonToDtoWithGroup(lesson1)));
+        }
+        return days;
     }
 
     private static DayDTO zonedDateTimeToDayDto(ZonedDateTime zonedDateTime) {

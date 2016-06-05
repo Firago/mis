@@ -11,7 +11,7 @@ import java.util.Locale;
 public class DateUtils {
 
     public static int timeToMinutes(ZonedDateTime time) {
-        int hours = time.getHour() + 1;
+        int hours = time.getHour();
         int minutes = time.getMinute();
         return (hours * 60) + minutes;
     }
@@ -23,7 +23,11 @@ public class DateUtils {
     public static String getWeekName(int weekIndex, String locale) {
         DateFormatSymbols symbols = new DateFormatSymbols(new Locale(locale));
         String[] dayNames = symbols.getWeekdays();
-        return dayNames[weekIndex];
+        if (weekIndex == 7) {
+            return dayNames[1];
+        } else {
+            return dayNames[weekIndex + 1];
+        }
     }
 
     public static ZonedDateTime getWeekStart(ZonedDateTime date) {

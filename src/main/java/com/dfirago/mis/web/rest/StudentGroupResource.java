@@ -131,7 +131,7 @@ public class StudentGroupResource {
     @Timed
     public ResponseEntity<TimetableResponseDTO> getTimetableForGroup(@PathVariable Long id, @Valid @RequestBody TimetableRequestDTO request) throws URISyntaxException {
         log.debug("REST request to get timetable for StudentGroup : {}", request);
-        ZonedDateTime now = ZonedDateTime.now();
+        ZonedDateTime now = ZonedDateTime.now().plusDays(5);
         ZonedDateTime from = request.getFrom() == null ? DateUtils.getWeekStart(now) : request.getFrom();
         ZonedDateTime to = request.getTo() == null ? DateUtils.getWeekEnd(now) : request.getTo();
         TimetableResponseDTO response = timetableService

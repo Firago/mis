@@ -41,9 +41,6 @@ angular.module('misApp')
                     translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
                         $translatePartialLoader.addPart('studentGroup');
                         return $translate.refresh();
-                    }],
-                    entity: ['$stateParams', 'StudentGroup', function($stateParams, StudentGroup) {
-                        return StudentGroup.timetable({id : $stateParams.id}, {});
                     }]
                 }
             })
