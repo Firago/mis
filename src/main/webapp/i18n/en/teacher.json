@@ -16,6 +16,9 @@
             "detail": {
                 "title": "Teacher"
             },
+            "timetable": {
+                "title": "Timetable"
+            },
             "user": "User"
         }
     }

@@ -24,6 +24,26 @@ angular.module('misApp')
                     }]
                 }
             })
+            .state('teacher.timetable', {
+                parent: 'entity',
+                url: '/teacher/{id}/timetable',
+                data: {
+                    authorities: ['ROLE_USER'],
+                    pageTitle: 'misApp.teacher.timetable.title'
+                },
+                views: {
+                    'content@': {
+                        templateUrl: 'scripts/app/entities/teacher/teacher-timetable.html',
+                        controller: 'TeacherTimetableController'
+                    }
+                },
+                resolve: {
+                    translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
+                        $translatePartialLoader.addPart('teacher');
+                        return $translate.refresh();
+                    }]
+                }
+            })
             .state('teacher.detail', {
                 parent: 'entity',
                 url: '/teacher/{id}',

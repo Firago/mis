@@ -31,7 +31,7 @@ public class TimetableService {
     }
 
     public TimetableResponseDTO generateTimetableForTeacher(Long teacherId, ZonedDateTime from, ZonedDateTime to) {
-        List<Lesson> lessons = lessonRepository.findAllByGroupIdAndStartBetweenFromAndTo(teacherId, from, to);
+        List<Lesson> lessons = lessonRepository.findAllByTeacherIdAndStartBetweenFromAndTo(teacherId, from, to);
         TimetableResponseDTO timetable = new TimetableResponseDTO();
         List<DayDTO> days = TimetableUtils.groupLessonsByDaysForTeacher(lessons, from, to);
         timetable.setDays(days);

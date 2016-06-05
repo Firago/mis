@@ -63,9 +63,9 @@ var intervals = [{
 }];
 
 angular.module('misApp')
-    .controller('StudentGroupTimetableController', function ($scope, $rootScope, $stateParams, StudentGroup) {
+    .controller('TeacherTimetableController', function ($scope, $rootScope, $stateParams, Teacher) {
 
-        StudentGroup.timetable({id: $stateParams.id}, {}, function (result) {
+        Teacher.timetable({id: $stateParams.id}, {}, function (result) {
 
             var dayStart = (60 * 7) + 30;
             var dayEnd = (60 * 21) + 5;
@@ -170,7 +170,7 @@ angular.module('misApp')
             $scope.loadData(result);
 
             $scope.load = function (id) {
-                StudentGroup.timetable({id: id}, {}, function (result) {
+                Teacher.timetable({id: id}, {}, function (result) {
                     $scope.loadData(result);
                 });
             };
