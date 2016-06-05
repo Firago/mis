@@ -3,6 +3,7 @@ package com.dfirago.mis.web.rest;
 import com.codahale.metrics.annotation.Timed;
 import com.dfirago.mis.domain.SubjectEntry;
 import com.dfirago.mis.repository.SubjectEntryRepository;
+import com.dfirago.mis.security.AuthoritiesConstants;
 import com.dfirago.mis.web.rest.util.HeaderUtil;
 import com.dfirago.mis.web.rest.util.PaginationUtil;
 import org.slf4j.Logger;
@@ -13,6 +14,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 
 import javax.inject.Inject;
@@ -29,10 +31,10 @@ import java.util.Optional;
 public class SubjectEntryResource {
 
     private final Logger log = LoggerFactory.getLogger(SubjectEntryResource.class);
-        
+
     @Inject
     private SubjectEntryRepository subjectEntryRepository;
-    
+
     /**
      * POST  /subjectEntrys -> Create a new subjectEntry.
      */
@@ -40,6 +42,7 @@ public class SubjectEntryResource {
         method = RequestMethod.POST,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
+    @Secured(AuthoritiesConstants.ADMIN)
     public ResponseEntity<SubjectEntry> createSubjectEntry(@RequestBody SubjectEntry subjectEntry) throws URISyntaxException {
         log.debug("REST request to save SubjectEntry : {}", subjectEntry);
         if (subjectEntry.getId() != null) {
@@ -58,6 +61,7 @@ public class SubjectEntryResource {
         method = RequestMethod.PUT,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
+    @Secured(AuthoritiesConstants.ADMIN)
     public ResponseEntity<SubjectEntry> updateSubjectEntry(@RequestBody SubjectEntry subjectEntry) throws URISyntaxException {
         log.debug("REST request to update SubjectEntry : {}", subjectEntry);
         if (subjectEntry.getId() == null) {
@@ -79,7 +83,7 @@ public class SubjectEntryResource {
     public ResponseEntity<List<SubjectEntry>> getAllSubjectEntrys(Pageable pageable)
         throws URISyntaxException {
         log.debug("REST request to get a page of SubjectEntrys");
-        Page<SubjectEntry> page = subjectEntryRepository.findAll(pageable); 
+        Page<SubjectEntry> page = subjectEntryRepository.findAll(pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/subjectEntrys");
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }
@@ -108,6 +112,7 @@ public class SubjectEntryResource {
         method = RequestMethod.DELETE,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
+    @Secured(AuthoritiesConstants.ADMIN)
     public ResponseEntity<Void> deleteSubjectEntry(@PathVariable Long id) {
         log.debug("REST request to delete SubjectEntry : {}", id);
         subjectEntryRepository.delete(id);

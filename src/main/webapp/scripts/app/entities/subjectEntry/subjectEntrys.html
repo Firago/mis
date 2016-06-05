@@ -2,7 +2,7 @@
     <h2 translate="misApp.subjectEntry.home.title">SubjectEntrys</h2>
     <jh-alert></jh-alert>
     <div class="container-fluid">
-        <div class="row">
+        <div class="row" has-authority="ROLE_ADMIN">
             <div class="col-xs-4 no-padding-left">
                 <button class="btn btn-primary" ui-sref="subjectEntry.new" >
                     <span class="glyphicon glyphicon-plus"></span>
@@ -47,13 +47,15 @@
                             </button>
                             <button type="submit"
                                     ui-sref="subjectEntry.edit({id:subjectEntry.id})"
-                                    class="btn btn-primary btn-sm">
+                                    class="btn btn-primary btn-sm"
+                                    has-authority="ROLE_ADMIN">
                                 <span class="glyphicon glyphicon-pencil"></span>
                                 <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
                             </button>
                             <button type="submit"
                                     ui-sref="subjectEntry.delete({id:subjectEntry.id})"
-                                    class="btn btn-danger btn-sm">
+                                    class="btn btn-danger btn-sm"
+                                    has-authority="ROLE_ADMIN">
                                 <span class="glyphicon glyphicon-remove-circle"></span>
                                 <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
                             </button>

@@ -3,6 +3,7 @@ package com.dfirago.mis.web.rest;
 import com.codahale.metrics.annotation.Timed;
 import com.dfirago.mis.domain.Teacher;
 import com.dfirago.mis.repository.TeacherRepository;
+import com.dfirago.mis.security.AuthoritiesConstants;
 import com.dfirago.mis.service.TimetableService;
 import com.dfirago.mis.util.DateUtils;
 import com.dfirago.mis.web.rest.dto.TimetableRequestDTO;
@@ -17,6 +18,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 
 import javax.inject.Inject;
@@ -48,6 +50,7 @@ public class TeacherResource {
         method = RequestMethod.POST,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
+    @Secured(AuthoritiesConstants.ADMIN)
     public ResponseEntity<Teacher> createTeacher(@RequestBody Teacher teacher) throws URISyntaxException {
         log.debug("REST request to save Teacher : {}", teacher);
         if (teacher.getId() != null) {
@@ -66,6 +69,7 @@ public class TeacherResource {
         method = RequestMethod.PUT,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
+    @Secured(AuthoritiesConstants.ADMIN)
     public ResponseEntity<Teacher> updateTeacher(@RequestBody Teacher teacher) throws URISyntaxException {
         log.debug("REST request to update Teacher : {}", teacher);
         if (teacher.getId() == null) {
@@ -116,6 +120,7 @@ public class TeacherResource {
         method = RequestMethod.DELETE,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
+    @Secured(AuthoritiesConstants.ADMIN)
     public ResponseEntity<Void> deleteTeacher(@PathVariable Long id) {
         log.debug("REST request to delete Teacher : {}", id);
         teacherRepository.delete(id);
