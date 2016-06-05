@@ -11,6 +11,14 @@ angular.module('misApp')
                     return data;
                 }
             },
-            'update': { method:'PUT' }
+            'update': { method:'PUT' },
+            'timetable': {
+                'method': 'POST',
+                'url': 'api/teachers/:id/timetable',
+                transformResponse: function (data) {
+                    data = angular.fromJson(data);
+                    return data;
+                }
+            }
         });
     });

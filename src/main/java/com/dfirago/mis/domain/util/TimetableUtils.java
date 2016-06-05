@@ -7,7 +7,7 @@ import com.dfirago.mis.util.StringUtils;
 import com.dfirago.mis.web.rest.dto.DayDTO;
 import com.dfirago.mis.web.rest.dto.LessonDTO;
 
-import java.time.ZoneId;
+import java.time.ZoneOffset;
 import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -96,8 +96,7 @@ public class TimetableUtils {
         int year = zonedDateTime.getYear();
         int month = zonedDateTime.getMonthValue();
         int day = zonedDateTime.getDayOfMonth();
-        ZoneId zoneId = zonedDateTime.getZone();
-        ZonedDateTime ddmmyyyy = ZonedDateTime.of(year, month, day, 0, 0, 0, 0, zoneId);
+        ZonedDateTime ddmmyyyy = ZonedDateTime.of(year, month, day, 0, 0, 0, 0, ZoneOffset.UTC);
         DayDTO dayDTO = new DayDTO();
         dayDTO.setTitle(StringUtils.capitalize(title));
         dayDTO.setDate(ddmmyyyy);
