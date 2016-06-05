@@ -3,13 +3,14 @@ package com.dfirago.mis.web.rest;
 import com.codahale.metrics.annotation.Timed;
 import com.dfirago.mis.domain.Lesson;
 import com.dfirago.mis.repository.LessonRepository;
+import com.dfirago.mis.security.AuthoritiesConstants;
 import com.dfirago.mis.web.rest.util.HeaderUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 
 import javax.inject.Inject;
@@ -27,10 +28,10 @@ import java.util.Optional;
 public class LessonResource {
 
     private final Logger log = LoggerFactory.getLogger(LessonResource.class);
-        
+
     @Inject
     private LessonRepository lessonRepository;
-    
+
     /**
      * POST  /lessons -> Create a new lesson.
      */
@@ -38,6 +39,7 @@ public class LessonResource {
         method = RequestMethod.POST,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
+    @Secured(AuthoritiesConstants.ADMIN)
     public ResponseEntity<Lesson> createLesson(@Valid @RequestBody Lesson lesson) throws URISyntaxException {
         log.debug("REST request to save Lesson : {}", lesson);
         if (lesson.getId() != null) {
@@ -56,6 +58,7 @@ public class LessonResource {
         method = RequestMethod.PUT,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
+    @Secured(AuthoritiesConstants.ADMIN)
     public ResponseEntity<Lesson> updateLesson(@Valid @RequestBody Lesson lesson) throws URISyntaxException {
         log.debug("REST request to update Lesson : {}", lesson);
         if (lesson.getId() == null) {
@@ -103,6 +106,7 @@ public class LessonResource {
         method = RequestMethod.DELETE,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
+    @Secured(AuthoritiesConstants.ADMIN)
     public ResponseEntity<Void> deleteLesson(@PathVariable Long id) {
         log.debug("REST request to delete Lesson : {}", id);
         lessonRepository.delete(id);

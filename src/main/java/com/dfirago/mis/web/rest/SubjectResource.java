@@ -3,13 +3,14 @@ package com.dfirago.mis.web.rest;
 import com.codahale.metrics.annotation.Timed;
 import com.dfirago.mis.domain.Subject;
 import com.dfirago.mis.repository.SubjectRepository;
+import com.dfirago.mis.security.AuthoritiesConstants;
 import com.dfirago.mis.web.rest.util.HeaderUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 
 import javax.inject.Inject;
@@ -27,10 +28,10 @@ import java.util.Optional;
 public class SubjectResource {
 
     private final Logger log = LoggerFactory.getLogger(SubjectResource.class);
-        
+
     @Inject
     private SubjectRepository subjectRepository;
-    
+
     /**
      * POST  /subjects -> Create a new subject.
      */
@@ -38,6 +39,7 @@ public class SubjectResource {
         method = RequestMethod.POST,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
+    @Secured(AuthoritiesConstants.ADMIN)
     public ResponseEntity<Subject> createSubject(@Valid @RequestBody Subject subject) throws URISyntaxException {
         log.debug("REST request to save Subject : {}", subject);
         if (subject.getId() != null) {
@@ -56,6 +58,7 @@ public class SubjectResource {
         method = RequestMethod.PUT,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
+    @Secured(AuthoritiesConstants.ADMIN)
     public ResponseEntity<Subject> updateSubject(@Valid @RequestBody Subject subject) throws URISyntaxException {
         log.debug("REST request to update Subject : {}", subject);
         if (subject.getId() == null) {
@@ -103,6 +106,7 @@ public class SubjectResource {
         method = RequestMethod.DELETE,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
+    @Secured(AuthoritiesConstants.ADMIN)
     public ResponseEntity<Void> deleteSubject(@PathVariable Long id) {
         log.debug("REST request to delete Subject : {}", id);
         subjectRepository.delete(id);
