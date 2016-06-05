@@ -1,6 +1,7 @@
 package com.dfirago.mis.web.rest.dto;
 
 import java.time.ZonedDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -13,6 +14,7 @@ public class DayDTO {
     private List<LessonDTO> lessons;
 
     public DayDTO() {
+        lessons = new ArrayList<>();
     }
 
     public String getTitle() {
