@@ -555,7 +555,7 @@
                     <driver>org.h2.Driver</driver>
                     <url>jdbc:h2:file:./target/h2db/db/mis</url>
                     <defaultSchemaName />
-                    <username />
+                    <username>mis</username>
                     <password />
                     <referenceUrl>hibernate:spring:com.dfirago.mis.domain?dialect=org.hibernate.dialect.H2Dialect</referenceUrl>
                     <verbose>true</verbose>
