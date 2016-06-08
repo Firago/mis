@@ -1,10 +1,6 @@
 <div>
-    <style type="text/css">
-        .well {
-            padding: 0
-        }
-    </style>
-    <div id="wrapper">
+    <div id="spinner" ng-show="loading"></div>
+    <div id="wrapper" ng-show="!loading">
         <div id="left-sidebar-wrapper" class="sidebar-wrapper" ng-click="left()">
             <span class="glyphicon glyphicon-menu-left menu-glyphicon" aria-hidden="true"></span>
         </div>
@@ -65,3 +61,9 @@
         </div>
     </div>
 </div>
+
+<style type="text/css">
+    .well {
+        padding: 0
+    }
+</style>

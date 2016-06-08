@@ -65,19 +65,27 @@ var intervals = [{
 angular.module('misApp')
     .controller('TeacherTimetableController', function ($scope, $rootScope, $stateParams, Teacher) {
 
+        $scope.loading = true;
+
+        var dayStart = (60 * 7) + 30;
+        var dayEnd = (60 * 21) + 5;
+        var stepDuration = 5;
+        var columnWidth = 230;
+        $scope.cellHeight = 9;
+        $scope.sliderOffset = 0;
+
+        $scope.content = {
+            intervals: intervals,
+            columns: []
+        };
+
+        intervals.forEach(function (interval) {
+            interval.height = ((interval.end - interval.start) / stepDuration) * $scope.cellHeight;
+        });
+
         Teacher.timetable({id: $stateParams.id}, {}, function (result) {
 
-            var dayStart = (60 * 7) + 30;
-            var dayEnd = (60 * 21) + 5;
-            var stepDuration = 5;
-            var columnWidth = 230;
-            $scope.cellHeight = 9;
             $scope.sliderWidth = result.days.length * columnWidth;
-            $scope.sliderOffset = 0;
-
-            intervals.forEach(function (interval) {
-                interval.height = ((interval.end - interval.start) / stepDuration) * $scope.cellHeight;
-            });
 
             $scope.left = function () {
                 var newOffset = $scope.sliderOffset + columnWidth;
@@ -96,11 +104,6 @@ angular.module('misApp')
                 } else {
                     $scope.sliderOffset = newOffset;
                 }
-            };
-
-            $scope.content = {
-                intervals: intervals,
-                columns: []
             };
 
             String.prototype.paddingLeft = function (paddingValue) {
@@ -169,10 +172,7 @@ angular.module('misApp')
 
             $scope.loadData(result);
 
-            $scope.load = function (id) {
-                Teacher.timetable({id: id}, {}, function (result) {
-                    $scope.loadData(result);
-                });
-            };
+            $scope.loading = false;
+
         });
     });
