@@ -4,7 +4,10 @@
             padding: 0
         }
     </style>
-    <div id="wrapper">
+    <!--<div id="spinner" ng-show="loading">-->
+        <!--<img src="lib/jQuery/images/ajax-loader.gif" class="ajax-loader"/>-->
+    <!--</div>-->
+    <div id="wrapper" ng-show="!loading">
         <div id="left-sidebar-wrapper" class="sidebar-wrapper" ng-click="left()">
             <span class="glyphicon glyphicon-menu-left menu-glyphicon" aria-hidden="true"></span>
         </div>
